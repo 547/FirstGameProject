@@ -116,6 +116,6 @@ cc.Class({
         //palyer停止所有的动作
         this.player.stopAllActions()
         //director是管理游戏逻辑流程的单例对象 loadScene方法是重新加载game场景 = 游戏重新开始
-        cc.director.loadScene("Game")
+        cc.director.loadScene("End")
     },
 });
