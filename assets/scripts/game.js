@@ -80,14 +80,14 @@ cc.Class({
           cc.log("获取星星组件失败")
       }
       this.node.addChild(newStar)
-      newStar.setPosition(this.getNewStarPosition())
+      newStar.setPosition(this.getNewStarPosition(newStar))
       
       // 重置计时器，根据消失时间范围随机取一个值
       this.starDuration = this.minStarDuration + Math.random() * (this.maxStarDuration - this.minStarDuration)
       //重置计时器
       this.timer = 0
     },
-    getNewStarPosition: function () {
+    getNewStarPosition (star) {
         var randX = 0
         var jumpHeight = 0
         var play = this.player.getComponent("player")
@@ -98,7 +98,7 @@ cc.Class({
             cc.log("获取组件出错")
         }
         var randY = this.groundY + Math.random() * jumpHeight + 50
-        var maxX = this.node.width * 0.5
+        var maxX = (this.node.width - 60) * 0.5
         randX = (Math.random() - 0.5) * 2 * maxX
         var result = cc.v2(randX, randY)
         return result
