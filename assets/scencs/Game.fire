@@ -165,7 +165,7 @@
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": 399.4102347188563
+      "z": 399.23771114462625
     },
     "_scale": {
       "__type__": "cc.Vec3",
@@ -626,8 +626,8 @@
     "starPrefab": {
       "__uuid__": "517bb539-6d09-41e3-88d1-789795e7889c"
     },
-    "maxStarDuration": 5,
-    "minStarDuration": 3,
+    "maxStarDuration": 8,
+    "minStarDuration": 5,
     "ground": {
       "__id__": 7
     },

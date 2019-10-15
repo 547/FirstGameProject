@@ -45,20 +45,31 @@ cc.Class({
     },
 
     update (dt) {
+        this.move(dt)
+    },
+
+
+
+    move (dt) {
         if (this.accLeft) {
             this.xSpeed -= this.accel * dt
         } else if (this.accRight) {
             this.xSpeed += this.accel * dt
         }
+        //防止player移动的速度超过最大速度
         if (Math.abs(this.xSpeed) > this.maxMoveSpeed) {
             this.xSpeed = this.maxMoveSpeed * this.xSpeed / Math.abs(this.xSpeed)
         }
-        this.node.x += this.xSpeed * dt
+
+        //防止player跳出显示屏外
+        var x = this.node.x
+        x += this.xSpeed * dt
+        var maxX = (cc.winSize.width - this.node.width) * 0.5
+        if (Math.abs(x) > maxX) {
+            x = maxX * x / Math.abs(x)
+        }
+        this.node.x = x
     },
-
-
-
-
     setJumpAction: function () {
       var jumpUp = cc.moveBy(this.jumpDuration, cc.v2(0, this.jumpHeight)).easing(cc.easeCircleActionOut())
       var jumpDown = cc.moveBy(this.jumpDuration, cc.v2(0, -this.jumpHeight)).easing(cc.easeCircleActionIn())
