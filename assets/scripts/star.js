@@ -44,7 +44,7 @@ cc.Class({
     onPicked: function () {
         this.game.spawnNewStar()
         this.game.gainScore()
-        this.node.destroy()  
+        this.node.destroy()
     },
     updateStarOpacity: function () {
         //根据geme中的计时器更新星星的透明度
